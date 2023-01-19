@@ -1,5 +1,5 @@
 # Script that imports open trade data from a MT5 Terminal and rotates through graphs.
-# Made for article on Medium: 
+# Made for article on Medium: https://medium.com/@eduardo-bogosian/a-python-script-that-rotates-through-your-open-trades-in-mt5-2ccd9e7136f5
 # By Eduardo Bogosian - 2023
 
 import pytz
@@ -25,6 +25,7 @@ def get_today():
     current_month = int(current_date[5] + current_date[6])
     current_day = int(current_date[8] + current_date[9])
     today = datetime(current_year, current_month, current_day, tzinfo=timezone)
+    
     return today
 
 
@@ -44,6 +45,7 @@ def get_open_price(trades_df, instrument):
     open_price_loc = trades_df[trades_df['symbol'] == instrument].index.values
     open_price = trades_df.iloc[open_price_loc]['price_open']
     open_price = float(open_price)
+    
     return open_price
 
 
@@ -51,6 +53,7 @@ def get_stop_loss(trades_df, instrument):
     stop_loss_loc = trades_df[trades_df['symbol'] == instrument].index.values
     stop_loss = trades_df.iloc[stop_loss_loc]['sl']
     stop_loss = float(stop_loss)
+    
     return stop_loss
 
 
@@ -58,6 +61,7 @@ def get_take_profit(trades_df, instrument):
     take_profit_loc = trades_df[trades_df['symbol'] == instrument].index.values
     take_profit = trades_df.iloc[take_profit_loc]['tp']
     take_profit = float(take_profit)
+    
     return take_profit
 
 
