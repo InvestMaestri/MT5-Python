@@ -12,6 +12,8 @@ import seaborn as sns
 import MetaTrader5 as mt5
 import matplotlib.pyplot as plt
 
+plt.interactive(True)
+
 from datetime import date
 from datetime import datetime
 
@@ -94,8 +96,7 @@ def show_graph(trades_df, instrument_history, ticker, duration):
     plt.axhline(y=take_profit, color='green')
     plt.title(f'{symbol} - {trade_direction}')
     plt.show(block=False)
-    plt.pause(1.00)
-    time.sleep(duration)
+    plt.pause(duration)
     plt.close()
 
 # ------------------------------------------------
@@ -126,7 +127,7 @@ def main():
             for instrument in open_trades['symbol']:
                 hist = get_instrument_historical(instrument)
                 # Show graph for x amount of time
-                show_graph(open_trades, hist, instrument, 10)
+                show_graph(open_trades, hist, instrument, 15)
 
     mt5.shutdown()
 
