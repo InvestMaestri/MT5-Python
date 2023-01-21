@@ -12,15 +12,14 @@ import seaborn as sns
 import MetaTrader5 as mt5
 import matplotlib.pyplot as plt
 
-plt.interactive(True)
-
 from datetime import date
 from datetime import datetime
+
+plt.interactive(True)
 
 
 # ------------------------------------------------
 # Defs
-
 def get_today():
     timezone = pytz.timezone("Etc/UTC")
     current_date = str(date.today())
