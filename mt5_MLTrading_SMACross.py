@@ -1,3 +1,5 @@
+# Script to get started in Machine Learning with a SMA Cross strategy.
+# By Eduardo Bogosian 2023
 import pytz
 
 import pandas as pd
